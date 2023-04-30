@@ -22,6 +22,13 @@ session_start();
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #394867;">
   <a class="navbar-brand font-weight-bold  text-white display-1" href="student_home.php"> <span class="h1">Splitwise</span> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +38,7 @@ session_start();
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ml-5">
       <li class="nav-item ">
-        <a class="nav-link text-light border-right" href="user_home.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light border-right" href="./index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <li class="nav-item">
@@ -41,19 +48,12 @@ session_start();
         <a class="nav-link text-light border-right" href="./view_group.php">Group</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="./view_customer.php">Customer</a>
+        <a class="nav-link text-light border-right" href="./view_customer.php">Customer</a>
       </li>
-      <!-- <li class="nav-item dropdown float-lg-right">
-        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Group
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="book_slot.php"></a>         
-          <a class="dropdown-item" href="slot_history.php">Slot History</a>         
-          
-   
-          
-      </li> -->
+
+      <li class="nav-item">
+        <a class="nav-link text-light " href="./change_password.php">Change Password</a>
+      </li>
      
      
       

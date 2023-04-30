@@ -236,7 +236,8 @@
 
             </div>
             <!-- modal end edit group -->
-            <div class="">
+            <div style="height: 350px; overflow-y:auto">
+
                 <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#add_participants">Overview</a>
                 <a href="./view_group_balance_details.php?g_id=<?php echo $g_id ?>" class="btn btn-sm btn-dark">Balance</a>
                 <a href="whatsapp://send?text=Join Group on SplitNow, id=<?php echo $g_userid ?> and password=<?php echo $g_password ?>" data-action="share/whatsapp/share" class="btn btn-sm btn-dark">Share</a>
@@ -251,7 +252,8 @@
                 $exc=mysqli_query($conn,$qry);
                 while($row=mysqli_fetch_array($exc)){
                     ?>
-               
+
+              
             <div class="row border-top mt-1">
                 
                 <div class="col-3 border-right pr-2 my_text_clr">
@@ -283,6 +285,8 @@
             <?php
                 }
             ?>
+              
+              </div>
              </div>
 		</div>
 	</div>
