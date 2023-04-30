@@ -2,13 +2,19 @@
 <html>
 <head>
 	<title>Profile</title>
+	<style>
+        .my_text_clr{
+            color:394867;
+        }
+    </style>
 </head>
-<body>
+<body  style="background-color:#9BA4B5">
 	<?php include "navbar.php"; ?>
 
 	<div class="container m-5">
-		<p class="h3  text-danger">Profile</p>
-		<div class="col-lg-6">
+		<div class="col-lg-6 offset-3">
+		<p class="h3 my_text_clr text-center">Profile</p>
+
 			<form method="post">
 				
 			

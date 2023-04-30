@@ -22,26 +22,26 @@ session_start();
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand font-weight-bold  text-white h2" href="student_home.php">SplitNow</a>
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #394867;">
+  <a class="navbar-brand font-weight-bold  text-white display-1" href="student_home.php"> <span class="h1">Splitwise</span> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ml-5">
       <li class="nav-item ">
-        <a class="nav-link text-dark" href="user_home.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light border-right" href="user_home.php">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./profile.php">Profile</a>
+        <a class="nav-link text-light border-right " href="./profile.php">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./view_group.php">Group</a>
+        <a class="nav-link text-light border-right" href="./view_group.php">Group</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./view_customer.php">Customer</a>
+        <a class="nav-link text-light" href="./view_customer.php">Customer</a>
       </li>
       <!-- <li class="nav-item dropdown float-lg-right">
         <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,7 +65,7 @@ session_start();
           Welcome <?php echo $email; ?></a>
       </span>
      <span class=" float-lg-right">
-         <a class="nav-link text-danger " href="./logout.php" tabindex="-1" data-toggle="tooltip" title="Logout" ><i class='fas fa-lock' style='font-size:24px'></i></a>
+         <a class="nav-link  " style="color:#F1F6F9" href="./logout.php" tabindex="-1" data-toggle="tooltip" title="Logout" ><i class='fas fa-lock' style='font-size:24px'></i></a>
       </span>
    
   </div>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include('./email.php'); ?>
+
 <?php include './dbconn.php';
     session_start();
 	?>
 <head>
-	<title>SplitNow</title>
+	<title>Splitwise</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Travello template project">
@@ -228,7 +230,7 @@
 							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
 								<div class="logo"><a href="index.php" style="color: black;">		
 								<!-- <img src="./images/MSONS-LOGO.png" alt="" srcset="" width="120px"> -->
-								SplitNow
+								Splitwise
 										</a></div>
 								<!-- menu for pc, laptop, desktop screen -->
 								<nav class="main_nav">
@@ -454,6 +456,11 @@
 									$reg_qry="INSERT INTO `user`(`u_name`, `u_email`, `u_phone`, `u_password`,`user_type`) VALUES('$name','$email','$mobile','$password','customer')";
 									$reg_exc=mysqli_query($conn,$reg_qry);
 									if($reg_exc){
+										$msg="Thank you for registering, ";
+                            $msg.="login to Manage Bills <br/> ";
+                            $msg.="Username : $email ";
+                            $msg.="<br />Password : $password";
+                            phpmailsend($email, 'User registration', $msg);
 										echo "<script>alert('Successfully Registered.Your Password sent to your Email ID')
 										location=location</script>";
 									}

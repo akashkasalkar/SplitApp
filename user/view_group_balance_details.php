@@ -45,47 +45,78 @@
                 <!-- <a href="whatsapp://send?text=Join Group on SplitNow, id=<?php echo $g_userid ?> and password=<?php echo $g_password ?>" data-action="share/whatsapp/share" class="btn btn-sm btn-dark">Share</a> -->
 
            
-            <?php
-                 $qry="select * from manage_group_expences mg,s_group sg,user u
-                        where mg.fk_group_id=sg.g_id
-                        AND mg.paid_by=u.u_id
-                        AND mg.fk_group_id='$g_id'
-                ";
-                $exc=mysqli_query($conn,$qry);
-                while($row=mysqli_fetch_array($exc)){
-                    ?>
-               
-            <div class="row border-top mt-1">
-                
-                <div class="col-3 border-right pr-2 my_text_clr">
-                    <span class="h1 "><i class="fa fa-exchange offset-4"></i></span>
+                <div class="row">
                     
-                </div>
-                <div class="col-7">
-                    <p class="h3 my_text_clr"> 
-                        <?php echo $row['expence_title'] ?>
-                    <span class="float-right my_text_clr" style="color:#F1F6F9">₹ <?php echo $row['expence_amount'] ?></span>
+                            <table class="table table-stripped mt-2 ">
+                            <?php
+                            $all_user_total=0;
+                            $no_of_user=0;
+                          $qry="select * from user u,s_group sg,manage_group mg
+                            where u.u_id=mg.fk_user_id
+                            and mg.fk_group_id=sg.g_id
+                            AND mg.fk_group_id='$g_id'
+                         ";
+                        $exc=mysqli_query($conn,$qry);
+                        $count=mysqli_affected_rows($conn);
+                        // echo $count;
+                        for ($i=1;$i<=2;$i++){
+                            while($row=mysqli_fetch_array($exc)){
+                                $u_id=$row['u_id'];
+                                $no_of_user=$no_of_user+1;
+                               $total_exp_qry="select * ,SUM(mge.expence_amount) as user_total from manage_group_expences mge,user u
+                              WHERE u.u_id=mge.paid_by 
+                              AND mge.paid_by='$u_id'
+                              AND mge.fk_group_id='$g_id'
+                            ";
+                               $total_exp_exc=mysqli_query($conn,$total_exp_qry);
+                               while($total_exp_row=mysqli_fetch_array($total_exp_exc)){
+                                    $particular_user_total=$total_exp_row['user_total'];
+                               }
+                                 $all_user_total=$particular_user_total+$all_user_total;
+                           
+                                 $split_value=$all_user_total/$count;
+                            }
+                        }
+                            ?>
+                            <?php 
+                           
+                                 $qry="select *,SUM(mge.expence_amount) as total_expence_amount  from manage_group_expences mge,user u
+                                WHERE u.u_id=mge.paid_by 
+                                AND mge.fk_group_id='$g_id'
+                                group by (mge.paid_by)
+                                
+                             ";
+                            $exc=mysqli_query($conn,$qry);
+                            while($row=mysqli_fetch_array($exc)){
+                                $final_amount= $row['total_expence_amount']-$split_value;
+                            ?>
+                              <tr>
+                                <th class="text-center"><?php 
+                                echo $row['u_name'];
+                                if($row['u_id']==$user_id){
+                                    echo " (You)";
+                                }
+                                ?> </th>
+                                <td><?php 
+                                    if($final_amount < 0){
+                                        echo "<span class='text-danger h6'>".$final_amount."</span>";
+                                        ?>
+                                        <a href="" class="btn btn-sm btn-dark ml-3">Settle</a>
+                                        <?php
+                                    }
+                                    else{
+                                        echo "<p class='text-success h6'>".$final_amount."</p>";
 
-                    </p>
-                    <p class=" my_text_clr" style="font-size: 14px;"> 
-                        Paid By <?php echo $row['u_name'] ?>
-                    <span class="float-right my_text_clr" style="font-size: 12px;" >Expence On <?php echo $row['paid_date'] ?></span>
+                                    }
+                                ?></td>
+                              </tr>
+                            <?php } ?>
+                          
+                            </table>
 
-                    </p>
+
+                           
                 </div>
-                <div class="col-2 pr-2 border-left my_text_clr">
-                    <p class="mt-4 h3">
-                        <a href="" class="my_text_clr" >
-                            <i class="fa fa-edit float-center text-dark"></i>
-                        </a>
-                    </p>
-                </div>
-               
-               
-            </div>
-            <?php
-                }
-            ?>
              </div>
 		</div>
 	</div>
